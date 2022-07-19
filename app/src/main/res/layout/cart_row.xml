@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -24,9 +25,10 @@
             android:id="@+id/tvNameCartRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:text="Chittin mix pickle"
             android:textAppearance="@style/TextAppearance.BharatPickle.TitleSmall"
+            app:layout_constraintEnd_toStartOf="@+id/ivDeleteCartRow"
             app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,28 +36,18 @@
             android:id="@+id/tvweightCartRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:text="250 g"
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelSmall"
             app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
             app:layout_constraintTop_toBottomOf="@id/tvNameCartRow" />
-        <TextView
-            android:id="@+id/tvCartProductId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:textAppearance="@style/TextAppearance.BharatPickle.LabelSmall"
-            app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
-            app:layout_constraintTop_toBottomOf="@id/tvweightCartRow"
-            android:text="Product Id"
-            android:textSize="11dp" />
+
 
         <TextView
             android:id="@+id/tvPriceCartRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:text="₹ 500.00"
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelMedium"
             app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
@@ -66,8 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="₹ 500.00"
             android:foreground="@drawable/strikethrough"
+            android:text="₹ 500.00"
 
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelMedium"
             android:textColor="#B00000"
@@ -76,12 +68,12 @@
 
 
         <ImageView
-            android:id="@+id/ivSettingCartRow"
+            android:id="@+id/ivDeleteCartRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_setting_cart"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
 
 
         <!-- <com.mcdev.quantitizerlibrary.HorizontalQuantitizer
@@ -102,8 +94,19 @@
             app:nsMaxValue="100"
             app:nsMinValue="1"
             app:nsStep="1"
-            app:nsValue="5"
-            />
+            app:nsValue="5" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvNameCartRow,ivDeleteCartRow" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="ivDeleteCartRow,tvNameCartRow" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

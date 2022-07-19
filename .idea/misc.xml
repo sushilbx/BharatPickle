@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2205" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/ic_baseline_drag_indicator_24.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/ic_cart.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.2205" />
@@ -23,7 +24,7 @@
         <entry key="app/src/main/res/drawable/splash_scre.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/strikethrough.xml" value="0.2205" />
         <entry key="app/src/main/res/layout/activity_bottom_navigation.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.33645833333333336" />
+        <entry key="app/src/main/res/layout/activity_cart.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_details_product.xml" value="0.33645833333333336" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.33645833333333336" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.33645833333333336" />
@@ -64,7 +65,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.33" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,9 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bharatpickle.ItemListener;
 import com.bharatpickle.R;
 import com.bharatpickle.RemoveCartFragment;
+import com.bharatpickle.models.CartModel;
 import com.bharatpickle.models.ProductModel;
+import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 
 
@@ -23,6 +27,8 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     Context context;
     List<ProductModel> arrayCart;
+
+
 
     public CartAdapter(Context context, List<ProductModel> arrayCart) {
         this.context = context;
@@ -42,12 +48,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ProductModel model = arrayCart.get(position);
-
+        Glide.with(context)
+                .load(model.image)
+                .into(holder.ivImageCartRow);
         holder.tvCartProductName.setText(model.name);
-        holder.tvCartProductId.setText(model.id);
         holder.tvCartProductPrice.setText(model.price);
-        holder.tvCartProductQuantity.setText(String.valueOf(model.quantity));
-        holder.mbCartRowRemove.setOnClickListener(new View.OnClickListener() {
+        //holder.tvCartProductQuantity.setText(String.valueOf(model.quantity));
+        holder.ivDeleteCartRow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RemoveCartFragment.newInstance(model.cart_item_id, "").show(
@@ -62,20 +69,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         return arrayCart.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvCartProductName, tvCartProductId, tvCartProductPrice, tvCartProductQuantity;
-        MaterialButton mbCartRowRemove;
+        TextView tvCartProductName,  tvCartProductPrice;
+        ImageView ivDeleteCartRow,ivImageCartRow;
 
 
         public ViewHolder(View itemView) {
 
             super(itemView);
+
             tvCartProductName = itemView.findViewById(R.id.tvNameCartRow);
-            tvCartProductId = itemView.findViewById(R.id.tvCartProductId);
             tvCartProductPrice = itemView.findViewById(R.id.tvPriceCartRow);
-            //tvCartProductQuantity = itemView.findViewById(R.id.tvCartProductQuantity);
-            mbCartRowRemove = itemView.findViewById(R.id.mbRemoveCart);
+            ivDeleteCartRow = itemView.findViewById(R.id.ivDeleteCartRow);
+            ivImageCartRow = itemView.findViewById(R.id.ivImageCartRow);
         }
 
     }

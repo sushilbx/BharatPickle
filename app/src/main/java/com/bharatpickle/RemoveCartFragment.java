@@ -1,49 +1,36 @@
 package com.bharatpickle;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RemoveCartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class RemoveCartFragment extends DialogFragment {
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentResultListener;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+import com.google.android.material.button.MaterialButton;
+
+public class RemoveCartFragment extends DialogFragment {
+    MaterialButton mbRemoveCart;
+
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     public RemoveCartFragment() {
-        // Required empty public constructor
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RemoveCartFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static RemoveCartFragment newInstance(String param1, String param2) {
         RemoveCartFragment fragment = new RemoveCartFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -54,12 +41,35 @@ public class RemoveCartFragment extends DialogFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_remove_cart, container, false);
+        View view = inflater.inflate(R.layout.fragment_remove_cart, container, false);
+        mbRemoveCart = view.findViewById(R.id.mbRemoveCart);
+        mbRemoveCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Utils.removeCart(getContext(), mParam1, new ApiListener() {
+                    @Override
+                    public void onSuccess(String response) {
+                        Bundle result = new Bundle();
+                        result.putBoolean("result", true);
+                        getParentFragmentManager().setFragmentResult("cart", result);
+                        dismiss();
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+
+                    }
+                });
+
+            }
+        });
+        return view;
     }
+
 }

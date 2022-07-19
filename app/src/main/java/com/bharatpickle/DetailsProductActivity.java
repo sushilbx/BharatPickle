@@ -67,20 +67,31 @@ public class DetailsProductActivity extends AppCompatActivity {
         etImage = findViewById(R.id.productDetailsImage);
         mbAddToCart= findViewById(R.id.mbAddToCart) ;
 
-
         mtDetailsProduct.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
+
+
         mbAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(DetailsProductActivity.this, CartActivity.class);
-                startActivity(myIntent);
+                Utils.addToCart(context, id, new ApiListener() {
+                    @Override
+                    public void onSuccess(String response) {
+                        mbAddToCart.setText("Added to Cart");
+                        mbAddToCart.setOnClickListener(null);
+                    }
+
+                    @Override
+                    public void onFailure(String error) {
+
+                    }
+                });
             }
         });
-
 
 
     }
