@@ -80,6 +80,7 @@ public class UpdateAddressActivity extends AppCompatActivity {
         tietUpdateAddressMobile.setText(model.mobile);
     }
 
+
     private void fromXml() {
         tietUpdateAddressName = findViewById(R.id.tietUpdateAddressName);
         tietUpdateAddressHome = findViewById(R.id.tietUpdateAddressHome);
