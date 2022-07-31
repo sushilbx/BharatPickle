@@ -11,8 +11,7 @@
         android:id="@+id/mtBackSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/white"
-        android:background="@color/black"
+        android:background="@color/yellow"
         app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
         app:title="Signup"
         app:titleTextAppearance="@style/TextAppearance.BharatPickle.TitleLarge"/>
@@ -96,8 +95,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/black"
                 android:layout_marginTop="40dp"
-                android:backgroundTint="@color/black"
                 android:textAllCaps="false"
                 android:text="Sign Up"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent" />

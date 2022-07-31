@@ -3,6 +3,7 @@ package com.bharatpickle;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.bharatpickle.adapters.ProductAdapter;
 import com.bharatpickle.models.GetProductModel;
 import com.bharatpickle.models.ProductModel;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +28,10 @@ import java.util.Map;
 
 public class ProductListActivity extends AppCompatActivity {
     ArrayList<ProductModel> arrayProduct = new ArrayList<>();
-    String url = "http://ottego.com/pickle/pickle/product_list";
+    String url =  Utils.URL +"product_list";
     RecyclerView recyclerView;
     SessionManager sessionManager;
+    MaterialToolbar mtProductListBack;
 
 
     @Override
@@ -37,6 +40,14 @@ public class ProductListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_list);
         sessionManager = new SessionManager(this);
         recyclerView = findViewById(R.id.recyclerProductList);
+        mtProductListBack = findViewById(R.id.mtProductListBack);
+
+        mtProductListBack.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {onBackPressed();
+
+            }
+        });
 
 //       recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL ));
@@ -69,9 +80,7 @@ public class ProductListActivity extends AppCompatActivity {
 
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
+            public void onErrorResponse(VolleyError error) {error.printStackTrace();}
         };
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, responseListener, errorListener) {

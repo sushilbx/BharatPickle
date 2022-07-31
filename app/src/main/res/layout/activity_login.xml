@@ -22,7 +22,7 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/ic_logo" />
+                android:src="@drawable/tpicy" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
-                android:backgroundTint="@color/black"
+                android:textColor="@color/black"
                 android:text="Login"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent" />
 
@@ -84,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/black"
                 android:text="Login with Google"
+                android:textColor="@color/black"
                 app:iconSize="24dp"
                 app:iconTint="@null"
                 android:textAllCaps="false"
@@ -97,8 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/black"
                 android:text="Create New Account"
+                android:textColor="@color/black"
                 android:textAllCaps="false"
                 app:iconGravity="textStart"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.MediumComponent" />

@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CHITTIN"
+        android:text="TPICY"
         android:gravity="center"
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.BharatPickle.HeadlineSmall"
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Taste Of India"
-        android:textColor="@color/md_theme_dark_tertiary"
+        android:textColor="@color/yellow"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.BharatPickle.BodyMedium"/>
 

@@ -12,9 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bharatpickle.ApiListener;
 import com.bharatpickle.ItemListener;
 import com.bharatpickle.R;
 import com.bharatpickle.RemoveCartFragment;
+import com.bharatpickle.Utils;
+import com.bharatpickle.interfaces.QuantityListener;
 import com.bharatpickle.models.CartModel;
 import com.bharatpickle.models.ProductModel;
 import com.bumptech.glide.Glide;
@@ -23,18 +26,21 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
+import ezy.ui.view.NumberStepper;
+
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     Context context;
     List<ProductModel> arrayCart;
+    ApiListener apiListener;
 
 
-
-    public CartAdapter(Context context, List<ProductModel> arrayCart) {
+    public CartAdapter(Context context, List<ProductModel> arrayCart, ApiListener apiListener) {
         this.context = context;
         this.arrayCart = arrayCart;
-    }
+        this.apiListener= apiListener;
 
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -53,6 +59,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 .into(holder.ivImageCartRow);
         holder.tvCartProductName.setText(model.name);
         holder.tvCartProductPrice.setText(model.price);
+        holder.nsCartQtyAddSubtract.setValue(Integer.parseInt(model.quantity));
+        holder.nsCartQtyAddSubtract.setOnValueChangedListener(new NumberStepper.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(NumberStepper view, int value) {
+                Utils.addToCart(context, model.product_id, value, apiListener);
+            }
+        });
+
+
         //holder.tvCartProductQuantity.setText(String.valueOf(model.quantity));
         holder.ivDeleteCartRow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +88,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         TextView tvCartProductName,  tvCartProductPrice;
         ImageView ivDeleteCartRow,ivImageCartRow;
+        NumberStepper nsCartQtyAddSubtract;
 
 
         public ViewHolder(View itemView) {
@@ -83,6 +99,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             tvCartProductPrice = itemView.findViewById(R.id.tvPriceCartRow);
             ivDeleteCartRow = itemView.findViewById(R.id.ivDeleteCartRow);
             ivImageCartRow = itemView.findViewById(R.id.ivImageCartRow);
+            nsCartQtyAddSubtract= itemView.findViewById(R.id.nsCartQtyAddSubtract);
         }
 
     }

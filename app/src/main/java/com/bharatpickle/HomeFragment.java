@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class HomeFragment extends Fragment {
     ArrayList<ProductModel> arrayProduct = new ArrayList<>();
-    String url = "http://ottego.com/pickle/pickle/product_list";
+    String url =  Utils.URL +"product_list";
     RecyclerView recyclerView;
     SessionManager sessionManager;
     private static final String ARG_PARAM1 = "param1";
@@ -77,7 +77,6 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-
     private void getProduct() {
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -120,6 +119,4 @@ public class HomeFragment extends Fragment {
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(30000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         MySingleton.myGetMySingleton(getContext()).myAddToRequest(stringRequest);
     }
-
-
 }

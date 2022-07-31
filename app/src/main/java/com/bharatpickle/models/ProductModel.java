@@ -10,6 +10,7 @@ public class ProductModel {
     public String image;
     public String id;
     public String quantity;
+    public String product_id;
     public String cart_item_id;
     public List<ImageModel> images;
 }

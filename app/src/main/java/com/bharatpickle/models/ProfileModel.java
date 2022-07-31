@@ -5,7 +5,7 @@ public class ProfileModel {
     public String name;
     public String mobile;
     public String email;
-    public String gender;
+    public int  gender;
     public String role;
     public String dob;
     public String status;

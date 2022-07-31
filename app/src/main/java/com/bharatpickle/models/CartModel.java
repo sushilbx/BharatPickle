@@ -10,6 +10,8 @@ public class CartModel {
     public String id;
     public String price;
     public String quantity;
+    public String total_item;
+    public String sub_total;
     public List<ProductModel> products;
 
 }

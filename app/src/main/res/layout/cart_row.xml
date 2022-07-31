@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -26,9 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="50dp"
             android:text="Chittin mix pickle"
             android:textAppearance="@style/TextAppearance.BharatPickle.TitleSmall"
-            app:layout_constraintEnd_toStartOf="@+id/ivDeleteCartRow"
             app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,17 +40,49 @@
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelSmall"
             app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
             app:layout_constraintTop_toBottomOf="@id/tvNameCartRow" />
+        <TextView
+            android:id="@+id/tvCartRowQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Qty : "
+            android:textStyle="normal"
+            android:textAppearance="@style/TextAppearance.BharatPickle.LabelSmall"
+            app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
+            app:layout_constraintTop_toBottomOf="@id/tvweightCartRow" />
+        <TextView
+            android:id="@+id/tvCartRowQty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="0"
+            android:textStyle="normal"
+            android:textAppearance="@style/TextAppearance.BharatPickle.LabelSmall"
+            app:layout_constraintStart_toEndOf="@id/tvCartRowQuantity"
+            app:layout_constraintTop_toBottomOf="@id/tvweightCartRow" />
+        <TextView
+            android:id="@+id/tvPriceCartRupeeRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="₹"
+            android:textAppearance="@style/TextAppearance.BharatPickle.LabelMedium"
+            app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
+            app:layout_constraintTop_toBottomOf="@id/tvCartRowQty" />
 
 
         <TextView
             android:id="@+id/tvPriceCartRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="₹ 500.00"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="3dp"
+            android:text="500.00"
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelMedium"
-            app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
-            app:layout_constraintTop_toBottomOf="@id/tvweightCartRow" />
+            app:layout_constraintStart_toEndOf="@id/tvPriceCartRupeeRow"
+            app:layout_constraintTop_toBottomOf="@id/tvCartRowQty" />
+
 
         <TextView
             android:id="@+id/tvDiscountPriceCartRow"
@@ -60,11 +91,11 @@
             android:layout_marginLeft="10dp"
             android:foreground="@drawable/strikethrough"
             android:text="₹ 500.00"
-
+            android:layout_marginTop="10dp"
             android:textAppearance="@style/TextAppearance.BharatPickle.LabelMedium"
             android:textColor="#B00000"
-            app:layout_constraintStart_toEndOf="@id/ivImageCartRow"
-            app:layout_constraintTop_toBottomOf="@id/tvPriceCartRow" />
+            app:layout_constraintStart_toEndOf="@id/tvPriceCartRow"
+            app:layout_constraintTop_toBottomOf="@id/tvCartRowQty" />
 
 
         <ImageView
@@ -84,7 +115,7 @@
              app:layout_constraintBottom_toBottomOf="parent"/>-->
 
         <ezy.ui.view.NumberStepper
-            android:id="@+id/ns"
+            android:id="@+id/nsCartQtyAddSubtract"
             style="@style/NumberStepper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,18 +127,6 @@
             app:nsStep="1"
             app:nsValue="5" />
 
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="tvNameCartRow,ivDeleteCartRow" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="ivDeleteCartRow,tvNameCartRow" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -117,5 +136,10 @@
         android:layout_height="1dp"
         android:layout_gravity="bottom"
         android:background="#36000000" />
+
+
+
+
+
 
 </FrameLayout>

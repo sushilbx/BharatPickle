@@ -42,7 +42,6 @@ public class DetailsProductActivity extends AppCompatActivity {
     String id = "";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +77,7 @@ public class DetailsProductActivity extends AppCompatActivity {
         mbAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utils.addToCart(context, id, new ApiListener() {
+                Utils.addToCart(context, id, 1, new ApiListener() {
                     @Override
                     public void onSuccess(String response) {
                         mbAddToCart.setText("Added to Cart");
@@ -135,6 +134,7 @@ public class DetailsProductActivity extends AppCompatActivity {
                 params.put("api_key", sessionManager.getApiKey());
                 params.put("api_secret", sessionManager.getApiSecret());
                 params.put("id", id);
+
                 return params;
             }
         };

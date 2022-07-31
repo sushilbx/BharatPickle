@@ -10,12 +10,10 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bharatpickle.DetailsProductActivity;
 import com.bharatpickle.ItemListener;
 import com.bharatpickle.R;
 import com.bharatpickle.ZoomActivity;
 import com.bharatpickle.models.ImageModel;
-import com.bharatpickle.models.ProductModel;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
@@ -57,7 +55,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
             public void onClick(View view) {
 //                itemListener.onSelect(model.id);
                 Intent myIntent = new Intent(context, ZoomActivity.class);
-                myIntent.putExtra("data", new Gson().toJson(arrayProduct) );
+                myIntent.putExtra("data", new Gson().toJson(arrayProduct));
                 context.startActivity(myIntent);
             }
         });

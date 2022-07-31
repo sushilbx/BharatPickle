@@ -1,5 +1,5 @@
 <resources>
-    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_primary">#cdd404</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#EADDFF</color>
     <color name="md_theme_light_onPrimaryContainer">#21005D</color>
@@ -65,4 +65,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#f70f0f</color>
+    <color name="yellow">#e2e610</color>
+    <color name="dark_yellow">#cdd404</color>
 </resources>
